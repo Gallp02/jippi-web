@@ -3,94 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J & R Inversiones JIPPI | Facturación y Servicios</title>
-<meta name="description" content="J & R Inversiones JIPPI - Empresa peruana de servicios. Facturación electrónica y más.">
+<title>J & R inversiones JIPPI | Facturacion y Gestion Empresarial</title>
+<meta name="description" content="J & R inversiones JIPPI e.i.r.l. - Facturacion electronica y gestion empresarial. RUC 20553920648.">
 <style>
   :root{
-    --brand:#863bff;
-    --brand-2:#7e14ff;
-    --brand-dark:#5b0ec1;
-    --lavanda:#ede6ff;
+    --navy-900:#0f1f3a;
+    --navy-800:#1e3a5f;
+    --navy-700:#1e40af;
+    --blue:#2563eb;
+    --blue-100:#dbeafe;
+    --blue-50:#eff6ff;
     --white:#ffffff;
-    --bg:#f8fafc;
+    --gray-50:#f8fafc;
     --gray-100:#f1f5f9;
     --gray-200:#e2e8f0;
-    --gray-500:#64748b;
+    --gray-500:#94a3b8;
+    --gray-600:#718096;
     --gray-700:#334155;
-    --gray-900:#0f172a;
+    --gray-900:#1a202c;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:system-ui,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;-webkit-font-smoothing:antialiased}
+  body{font-family:system-ui,'Segoe UI',Roboto,sans-serif;background:var(--gray-50);color:var(--gray-700);line-height:1.6;-webkit-font-smoothing:antialiased}
   .container{max-width:1120px;margin:0 auto;padding:0 20px}
   a{text-decoration:none;color:inherit}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-200)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--gray-900);font-size:18px}
-  .brand svg{flex-shrink:0}
-  .nav-links{display:flex;gap:24px;font-weight:500}
-  .nav-links a:hover{color:var(--brand)}
-  .btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;transition:transform .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(134,59,255,.35)}
-  .btn-light{background:#fff;color:var(--brand-2);border:1px solid var(--gray-200)}
-  .btn-light:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#0f1f3a,#1e3a5f);box-shadow:0 4px 20px rgba(15,31,58,.25)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff}
+  .brand img{width:44px;height:auto;border-radius:6px}
+  .brand-txt{line-height:1.2}
+  .brand-txt b{font-size:15px;font-weight:700;display:block}
+  .brand-txt span{font-size:10px;color:rgba(255,255,255,.55);font-weight:600;letter-spacing:.5px}
+  .nav-links{display:flex;gap:4px}
+  .nav-links a{color:rgba(255,255,255,.7);padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:500;transition:background .15s,color .15s}
+  .nav-links a:hover{background:rgba(255,255,255,.1);color:#fff}
+  .btn{display:inline-block;background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;font-size:15px;transition:opacity .2s,transform .15s;border:none;cursor:pointer}
+  .btn:hover{opacity:.92;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn-cta-nav{background:#fff;color:#1e3a5f}
+  .btn-cta-nav:hover{background:rgba(255,255,255,.92)}
 
-  .hero{background:linear-gradient(135deg,var(--lavanda),var(--brand) 60%,var(--brand-2));color:#fff;padding:90px 0 110px;overflow:hidden}
-  .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
-  .hero h1{font-size:44px;line-height:1.15;margin-bottom:16px;color:#fff}
-  .hero p{font-size:18px;color:rgba(255,255,255,.92);max-width:520px;margin-bottom:28px}
+  .hero{background:linear-gradient(135deg,#0f1f3a 0%,#1e3a5f 50%,#2563eb 100%);color:#fff;padding:96px 0 110px;overflow:hidden;position:relative}
+  .hero .glow{position:absolute;border-radius:50%;pointer-events:none}
+  .glow-1{top:-50%;right:-30%;width:600px;height:600px;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 70%)}
+  .glow-2{bottom:-40%;left:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(59,130,246,.1) 0%,transparent 70%)}
+  .hero .container{position:relative;z-index:1}
+  .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero-logo img{width:300px;max-width:80%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.3))}
+  .hero h1{font-size:44px;line-height:1.15;margin:20px 0 4px;font-weight:800;letter-spacing:-.5px;color:#fff}
+  .hero .subtitle{font-size:15px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:20px}
+  .hero .tagline{font-size:15px;color:rgba(255,255,255,.75);max-width:460px;margin-bottom:32px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-cta .btn-light{color:#fff;background:rgba(255,255,255,0);border-color:rgba(255,255,255,.6)}
-  .hero-cta .btn-light:hover{background:rgba(255,255,255,.15)}
-  .hero-badge{display:inline-block;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:18px}
-  .zap-card{background:#fff;border-radius:20px;padding:36px;color:var(--gray-900);box-shadow:0 20px 40px rgba(0,0,0,.18);text-align:center}
-  .zap-card svg{width:74px;height:auto;margin-bottom:8px}
-  .zap-card h3{font-size:20px;margin-bottom:4px}
-  .zap-card small{color:var(--gray-500)}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+  .badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-size:13px;color:rgba(255,255,255,.9)}
 
-  section{padding:80px 0}
-  .section-tag{display:inline-block;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;margin-bottom:10px}
-  h2{font-size:34px;color:var(--gray-900);margin-bottom:16px}
-  .sub{color:var(--gray-500);max-width:620px;margin-bottom:44px}
+  section{padding:84px 0}
+  .section-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1e3a5f;margin-bottom:10px}
+  h2{font-size:32px;font-weight:800;color:#1e3a5f;margin-bottom:12px;letter-spacing:-.3px}
+  .sub{color:var(--gray-600);max-width:640px;margin-bottom:40px}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:28px;transition:transform .15s,box-shadow .15s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08)}
-  .card .ico{width:52px;height:52px;border-radius:12px;background:var(--lavanda);color:var(--brand-2);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
-  .card h3{font-size:18px;color:var(--gray-900);margin-bottom:8px}
-  .card p{font-size:15px;color:var(--gray-500)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:26px;transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden}
+  .card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1e3a5f,#2563eb)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(30,58,95,.12)}
+  .card .ico{width:52px;height:52px;border-radius:12px;background:var(--blue-100);color:#1e3a5f;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+  .card h3{font-size:17px;color:var(--gray-900);margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--gray-600)}
 
   .about{background:#fff;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .about-grid h2{margin-bottom:12px}
-  .about-grid p{color:var(--gray-500);margin-bottom:16px}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-  .stat{background:var(--gray-100);border-radius:12px;padding:18px;text-align:center}
-  .stat b{font-size:26px;color:var(--brand-2);display:block}
-  .stat span{font-size:13px;color:var(--gray-500)}
-  .zap-big{display:flex;align-items:center;justify-content:center}
-  .zap-big svg{width:120px;height:auto}
+  .about-grid p{color:var(--gray-600);margin-bottom:16px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+  .stat{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:18px;text-align:center}
+  .stat b{font-size:26px;color:#2563eb;display:block}
+  .stat span{font-size:12.5px;color:var(--gray-600)}
+  .app-panel{background:linear-gradient(135deg,#0f1f3a,#1e3a5f);border-radius:20px;padding:36px;color:#fff;text-align:center;box-shadow:0 25px 60px rgba(15,31,58,.35)}
+  .app-panel img{width:180px;max-width:80%;height:auto;border-radius:8px;margin-bottom:14px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
+  .app-panel h4{color:#fff;font-size:17px;margin-bottom:4px}
+  .app-panel small{color:rgba(255,255,255,.55)}
 
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
   .contact-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
-  .contact-item .ico{width:44px;height:44px;border-radius:10px;background:var(--lavanda);color:var(--brand-2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-  .contact-item h4{color:var(--gray-900);font-size:16px}
-  .contact-item p{color:var(--gray-500)}
-  form{display:grid;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:28px}
-  form input,form textarea{width:100%;padding:12px 14px;border:1px solid var(--gray-200);border-radius:10px;font:inherit;background:var(--gray-100)}
-  form input:focus,form textarea:focus{outline:2px solid var(--brand);background:#fff}
-  form .btn{width:100%;text-align:center;border:none;cursor:pointer}
+  .contact-item .ico{width:44px;height:44px;border-radius:10px;background:var(--blue-100);color:#1e3a5f;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .contact-item h4{color:var(--gray-900);font-size:15px}
+  .contact-item p{color:var(--gray-600)}
 
-  footer{background:var(--gray-900);color:#94a3b8;padding:36px 0;text-align:center;font-size:14px}
-  footer b{color:#fff}
+  form{display:grid;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(15,31,58,.06)}
+  .field label{display:block;margin-bottom:6px;font-size:13px;font-weight:600;color:var(--gray-700)}
+  .field input,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--gray-200);border-radius:10px;font-size:14px;font-family:inherit;box-sizing:border-box;transition:border-color .15s;background:#fff;color:var(--gray-900)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  form .btn{width:100%;text-align:center}
+  .form-note{text-align:center;font-size:12px;color:var(--gray-500)}
+
+  footer{background:linear-gradient(180deg,#0f1f3a,#0c1930);color:rgba(255,255,255,.6);padding:36px 0;text-align:center;font-size:13.5px}
+  footer b{color:#fff;font-weight:600}
+  footer .f-row{margin-bottom:6px}
 
   @media (max-width:860px){
     .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr}
     .hero h1{font-size:32px}
     .nav-links{display:none}
-    .hero{padding:60px 0 80px}
+    .hero{padding:64px 0 80px}
   }
 </style>
 </head>
@@ -98,9 +114,12 @@
 
 <header>
   <div class="container nav">
-    <a class="brand" href="#">
-      <svg width="34" height="33" viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
-      J&R Inversiones <span style="color:var(--brand-2)">JIPPI</span>
+    <a class="brand" href="#inicio">
+      <img src="logo.png" alt="J & R inversiones JIPPI">
+      <div class="brand-txt">
+        <b>J & R inversiones</b>
+        <span>JIPPI e.i.r.l.</span>
+      </div>
     </a>
     <nav class="nav-links">
       <a href="#inicio">Inicio</a>
@@ -108,32 +127,36 @@
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <a class="btn" href="#contacto">Contáctanos</a>
+    <a class="btn btn-cta-nav" href="#contacto">Contáctanos</a>
   </div>
 </header>
 
 <section class="hero" id="inicio">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
   <div class="container hero-inner">
     <div>
-      <span class="hero-badge">⚡ RUC 20553920648 · Perú</span>
+      <div class="hero-badges">
+        <span class="badge">RUC 20553920648</span>
+        <span class="badge">Empresa peruana</span>
+      </div>
       <h1>[Frase principal de JIPPI en una línea]</h1>
-      <p>[Aquí va la descripción corta de tu empresa: a qué se dedica J&R Inversiones JIPPI y por qué el cliente debe confiar en ustedes.]</p>
+      <p class="subtitle">JIPPI e.i.r.l.</p>
+      <p class="tagline">[Aquí va la descripción corta de tu empresa: a qué se dedica J&R Inversiones JIPPI y por qué el cliente debe confiar en ustedes.]</p>
       <div class="hero-cta">
-        <a class="btn btn-light" href="#servicios">Ver servicios</a>
-        <a class="btn-light btn" href="#contacto">Pedir cotización</a>
+        <a class="btn" href="#servicios">Ver servicios</a>
+        <a class="btn btn-ghost" href="#contacto">Pedir cotización</a>
       </div>
     </div>
-    <div class="zap-card">
-      <svg viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
-      <h3>J &amp; R Inversiones JIPPI</h3>
-      <small>[Sector / Especialidad]</small>
+    <div class="hero-logo">
+      <img src="logo.png" alt="J & R inversiones JIPPI">
     </div>
   </div>
 </section>
 
 <section id="servicios">
   <div class="container">
-    <span class="section-tag">Servicios</span>
+    <div class="section-label"><span>⚙️</span> Servicios</div>
     <h2>¿Qué hacemos?</h2>
     <p class="sub">[Edita estos tres servicios o dime cuáles son los tuyos y los cambio.]</p>
     <div class="cards">
@@ -159,7 +182,7 @@
 <section class="about" id="nosotros">
   <div class="container about-grid">
     <div>
-      <span class="section-tag">Nosotros</span>
+      <div class="section-label"><span>🏢</span> Nosotros</div>
       <h2>[Subtítulo de presentación]</h2>
       <p>[Texto sobre la empresa: a qué se dedica, desde cuándo, qué ofrece y por qué es confiable.]</p>
       <p>[Segundo párrafo opcional con más detalle del negocio de J&R Inversiones JIPPI.]</p>
@@ -169,15 +192,19 @@
         <div class="stat"><b>100%</b><span>[Algo/Confianza]</span></div>
       </div>
     </div>
-    <div class="zap-big">
-      <svg viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
+    <div>
+      <div class="app-panel">
+        <img src="logo.png" alt="J & R inversiones JIPPI">
+        <h4>J & R inversiones</h4>
+        <small>JIPPI e.i.r.l. · Sistema de Gestion v1.0</small>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="contacto">
   <div class="container">
-    <span class="section-tag">Contacto</span>
+    <div class="section-label"><span>📞</span> Contacto</div>
     <h2>Contáctanos</h2>
     <p class="sub">[Agrega aquí los datos reales de contacto e indico cómo llegar / horarios.]</p>
     <div class="contact-grid">
@@ -200,12 +227,24 @@
         </div>
       </div>
       <form action="mailto:[correo@jippi.com]" method="get" enctype="text/plain">
-        <input type="text" name="name" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo" required>
-        <input type="text" name="phone" placeholder="Tu teléfono (opcional)">
-        <textarea name="message" rows="4" placeholder="¿En qué te ayudamos?" required></textarea>
+        <div class="field">
+          <label>Tu nombre</label>
+          <input type="text" name="name" placeholder="Nombre completo" required>
+        </div>
+        <div class="field">
+          <label>Correo</label>
+          <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        <div class="field">
+          <label>Teléfono</label>
+          <input type="text" name="phone" placeholder="+51 (opcional)">
+        </div>
+        <div class="field">
+          <label>Mensaje</label>
+          <textarea name="message" rows="4" placeholder="¿En qué te ayudamos?" required></textarea>
+        </div>
         <button class="btn" type="submit">Enviar mensaje</button>
-        <small style="color:var(--gray-500);text-align:center">[Nota: el formulario abre tu correo. Si prefieres WhatsApp, cambio el botón.]</small>
+        <small class="form-note">[El formulario abre tu correo. Si prefieres WhatsApp, cambio el botón.]</small>
       </form>
     </div>
   </div>
@@ -213,8 +252,9 @@
 
 <footer>
   <div class="container">
-    <b>J&R Inversiones JIPPI</b> · RUC 20553920648 · [Dirección] · <b>[+51 999 999 999]</b><br>
-    © <span id="year"></span> J&R Inversiones JIPPI. Todos los derechos reservados.
+    <div class="f-row"><b>J & R inversiones JIPPI</b> · RUC 20553920648 · [Dirección]</div>
+    <div class="f-row"><b>[+51 999 999 999]</b> · [correo@jippi.com]</div>
+    <div>© <span id="year"></span> J & R inversiones JIPPI e.i.r.l. Todos los derechos reservados.</div>
   </div>
 </footer>
 
