@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -202,23 +202,33 @@
   .social a:hover{background:#2563eb;color:#fff;transform:translateY(-3px)}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:13px}
 
-  /* === Catálogo deslizante === */
-  .marquee{position:relative;overflow:hidden;padding:8px 0 12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-  .marquee-track{display:flex;width:max-content;animation:scrollLeft 46s linear infinite;will-change:transform}
-  .marquee.reverse .marquee-track{animation:scrollRight 50s linear infinite}
-  .marquee:hover .marquee-track{animation-play-state:paused}
-  @keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @keyframes scrollRight{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-  .prod-card{width:238px;flex:0 0 auto;margin-right:22px;background:#fff;border:1px solid var(--gray-200);border-radius:16px;overflow:hidden;transition:transform .2s,box-shadow .2s}
-  .prod-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(30,58,95,.16)}
-  .prod-media{background:linear-gradient(180deg,#f8fafc,#e7eef8);padding:10px 14px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--gray-200)}
-  .prod-media svg{width:100%;height:130px;display:block}
-  .prod-body{padding:14px 16px 16px}
-  .prod-body h4{font-size:15px;color:var(--gray-900);margin-bottom:3px}
-  .prod-body p{font-size:12.5px;color:var(--gray-600);margin-bottom:10px;min-height:32px}
-  .prod-body a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:#2563eb}
-  .prod-body a b{transition:transform .2s}
-  .prod-card:hover .prod-body a b{transform:translateX(3px)}
+  /* === Catálogo coverflow === */
+  .cf-wrap{position:relative;max-width:1000px;margin:10px auto 0;padding:8px 0 4px;user-select:none}
+  .cf-stage{position:relative;height:340px;perspective:1200px;overflow:hidden}
+  .cf-item{position:absolute;top:50%;left:50%;width:360px;height:298px;margin:0;border-radius:18px;overflow:hidden;background:#e2e8f0;
+    box-shadow:0 18px 40px rgba(15,31,58,.25);transition:transform .55s cubic-bezier(.22,.61,.36,1),filter .55s,opacity .55s;will-change:transform,filter;cursor:pointer}
+  .cf-item img{width:100%;height:100%;object-fit:cover;display:block}
+  .cf-item.is-active{box-shadow:0 26px 60px rgba(15,31,58,.38);cursor:default}
+  .cf-arrow{position:absolute;top:150px;z-index:40;width:52px;height:52px;border-radius:50%;border:1px solid var(--gray-200);background:#fff;color:#1e3a5f;
+    font-size:30px;line-height:1;padding:0 0 4px;cursor:pointer;box-shadow:0 10px 26px rgba(15,31,58,.18);transition:transform .15s,background .15s,color .15s}
+  .cf-arrow:hover{background:#1e3a5f;color:#fff}
+  .cf-arrow:active{transform:scale(.94)}
+  .cf-prev{left:8px}
+  .cf-next{right:8px}
+  .cf-caption{text-align:center;margin-top:20px;min-height:52px}
+  .cf-caption b{display:block;font-size:20px;color:var(--gray-900)}
+  .cf-caption span{font-size:13.5px;color:var(--gray-600)}
+  .cf-dots{display:flex;justify-content:center;gap:9px;margin-top:14px}
+  .cf-dot{width:9px;height:9px;border-radius:50%;border:0;background:#cbd5e1;padding:0;cursor:pointer;transition:background .2s,transform .2s}
+  .cf-dot.on{background:#2563eb;transform:scale(1.3)}
+  @media (max-width:720px){
+    .cf-stage{height:280px}
+    .cf-item{width:250px;height:206px}
+    .cf-arrow{top:118px;width:44px;height:44px;font-size:26px}
+    .cf-prev{left:2px}
+    .cf-next{right:2px}
+    .cf-caption b{font-size:17px}
+  }
   .catalog-tip{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);background:#eff6ff;border:1px solid #dbeafe;padding:8px 14px;border-radius:999px;margin-bottom:6px}
 
   /* === Animaciones de texto (estilo Animista) === */
@@ -265,20 +275,6 @@
 </style>
 </head>
 <body>
-
-<svg width="0" height="0" style="position:absolute;left:-9999px" aria-hidden="true">
-  <defs>
-    <linearGradient id="gMetal" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f8fafc"/><stop offset=".4" stop-color="#cbd5e1"/><stop offset=".62" stop-color="#94a3b8"/><stop offset="1" stop-color="#64748b"/>
-    </linearGradient>
-    <linearGradient id="gMetalH" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#64748b"/><stop offset=".45" stop-color="#f1f5f9"/><stop offset=".7" stop-color="#cbd5e1"/><stop offset="1" stop-color="#94a3b8"/>
-    </linearGradient>
-    <linearGradient id="gRubber" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#6b7280"/><stop offset=".5" stop-color="#374151"/><stop offset="1" stop-color="#111827"/>
-    </linearGradient>
-  </defs>
-</svg>
 
 <header id="topbar">
   <div class="container nav">
@@ -374,160 +370,50 @@
   <div class="container">
     <div class="section-label"><span>🛒</span> Catálogo</div>
     <h2>Mira nuestros <span class="accent">productos</span></h2>
-    <p class="sub">Tornillería, tubería, abrazaderas y accesorios listos para tu taller, ferretería u obra. [Dime si quieres que cambie, agregue o quite productos de esta lista.]</p>
-    <div class="catalog-tip">👉 El catálogo se desliza solo. Pasa el mouse por encima para pausarlo.</div>
+    <p class="sub">Tornillería, tubería, abrazaderas y accesorios listos para tu taller, ferretería u obra. Pasa las fotos con las flechas para ver cada producto.</p>
+    <div class="catalog-tip">👉 Usa las flechas ‹ › o toca las fotos de los costados.</div>
   </div>
 
-  <div class="marquee" aria-label="Catálogo de productos">
-    <div class="marquee-track" id="trackA">
+  <div class="cf-wrap">
+    <button class="cf-arrow cf-prev" id="cfPrev" type="button" aria-label="Producto anterior">‹</button>
 
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Tornillos">
-            <ellipse cx="100" cy="118" rx="74" ry="8" fill="#0f1f3a" opacity=".08"/>
-            <rect x="70" y="60" width="104" height="18" rx="2" fill="url(#gMetalH)" stroke="#64748b" stroke-width="1.4"/>
-            <g stroke="#64748b" stroke-width="1.5" opacity=".8">
-              <path d="M78 60 L70 78"/><path d="M88 60 L80 78"/><path d="M98 60 L90 78"/><path d="M108 60 L100 78"/><path d="M118 60 L110 78"/><path d="M128 60 L120 78"/><path d="M138 60 L130 78"/><path d="M148 60 L140 78"/><path d="M158 60 L150 78"/><path d="M168 60 L160 78"/>
-            </g>
-            <polygon points="52,40 76,54 76,84 52,98 28,84 28,54" fill="url(#gMetal)" stroke="#475569" stroke-width="1.5"/>
-            <polygon points="52,46 70,56 70,82 52,92 34,82 34,56" fill="none" stroke="#94a3b8" stroke-width="1"/>
-            <polygon points="52,40 76,54 70,58 46,44" fill="#ffffff" opacity=".55"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Tornillos</h4>
-          <p>Acero · cabeza hexagonal · varias medidas</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Pernos">
-            <ellipse cx="100" cy="118" rx="76" ry="8" fill="#0f1f3a" opacity=".08"/>
-            <rect x="66" y="61" width="116" height="16" rx="2" fill="url(#gMetalH)" stroke="#64748b" stroke-width="1.4"/>
-            <g stroke="#64748b" stroke-width="1.5" opacity=".8">
-              <path d="M150 61 L143 77"/><path d="M158 61 L151 77"/><path d="M166 61 L159 77"/><path d="M174 61 L167 77"/>
-            </g>
-            <rect x="34" y="50" width="34" height="38" rx="7" fill="url(#gMetal)" stroke="#475569" stroke-width="1.5"/>
-            <rect x="41" y="56" width="7" height="26" rx="3" fill="#ffffff" opacity=".5"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Pernos</h4>
-          <p>Grado 5 y 8 · pulgadas y milímetros</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Tuercas">
-            <ellipse cx="100" cy="120" rx="46" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <path fill-rule="evenodd" fill="url(#gMetal)" stroke="#475569" stroke-width="1.6"
-              d="M100,26 L137,47 L137,89 L100,110 L63,89 L63,47 Z M100,50 A20 20 0 1 0 100,90 A20 20 0 1 0 100,50 Z"/>
-            <path d="M100,26 L137,47 L130,51 L93,30 Z" fill="#ffffff" opacity=".5"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Tuercas</h4>
-          <p>Hexagonales · métricas y de pulgada</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Arandelas">
-            <ellipse cx="100" cy="120" rx="52" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <path fill-rule="evenodd" fill="url(#gMetal)" stroke="#64748b" stroke-width="1.5"
-              d="M100,24 A46 46 0 1 0 100,116 A46 46 0 1 0 100,24 Z M100,50 A20 20 0 1 0 100,90 A20 20 0 1 0 100,50 Z"/>
-            <path d="M64,46 A46 46 0 0 1 136,46" fill="none" stroke="#ffffff" stroke-width="6" opacity=".5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Arandelas</h4>
-          <p>Planas, de presión y golillas</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Tubos y caños">
-            <ellipse cx="100" cy="122" rx="70" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <rect x="44" y="42" width="112" height="56" fill="url(#gMetalH)" stroke="#64748b" stroke-width="1.4"/>
-            <ellipse cx="44" cy="70" rx="15" ry="28" fill="url(#gMetal)" stroke="#64748b" stroke-width="1.4"/>
-            <ellipse cx="156" cy="70" rx="15" ry="28" fill="url(#gMetal)" stroke="#64748b" stroke-width="1.4"/>
-            <ellipse cx="156" cy="70" rx="9" ry="18" fill="#64748b"/>
-            <ellipse cx="156" cy="70" rx="6" ry="12" fill="#334155"/>
-            <rect x="58" y="50" width="86" height="8" rx="4" fill="#ffffff" opacity=".45"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Tubos y caños</h4>
-          <p>Acero al carbono y galvanizado</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Abrazaderas">
-            <ellipse cx="100" cy="122" rx="54" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <path fill-rule="evenodd" fill="url(#gMetal)" stroke="#475569" stroke-width="1.6"
-              d="M100,28 A44 44 0 1 0 100,116 A44 44 0 1 0 100,28 Z M100,48 A24 24 0 1 0 100,96 A24 24 0 1 0 100,48 Z"/>
-            <rect x="86" y="18" width="28" height="24" rx="4" fill="#94a3b8" stroke="#475569" stroke-width="1.4"/>
-            <circle cx="100" cy="30" r="7" fill="#cbd5e1" stroke="#475569" stroke-width="1.2"/>
-            <path d="M96.5,30 L103.5,30" stroke="#475569" stroke-width="1.8"/>
-            <path d="M114,26 C142,22 170,30 180,46" fill="none" stroke="url(#gMetalH)" stroke-width="7" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Abrazaderas</h4>
-          <p>Tipo Duker · varias medidas</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="Cintillos de nylon">
-            <ellipse cx="100" cy="120" rx="60" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <path d="M40,70 C52,28 108,28 124,70 C138,106 162,108 176,88" fill="none" stroke="#e2e8f0" stroke-width="12" stroke-linecap="round"/>
-            <path d="M40,70 C52,28 108,28 124,70 C138,106 162,108 176,88" fill="none" stroke="#94a3b8" stroke-width="2.5" opacity=".5"/>
-            <rect x="24" y="56" width="30" height="28" rx="7" fill="#cbd5e1" stroke="#64748b" stroke-width="1.4"/>
-            <rect x="34" y="66" width="12" height="8" rx="2" fill="#64748b"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>Cintillos de nylon</h4>
-          <p>Blancos y negros · varias medidas</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
-      <div class="prod-card">
-        <div class="prod-media">
-          <svg viewBox="0 0 200 140" role="img" aria-label="O rings">
-            <ellipse cx="100" cy="120" rx="50" ry="7" fill="#0f1f3a" opacity=".08"/>
-            <path fill-rule="evenodd" fill="url(#gRubber)" stroke="#0b1220" stroke-width="1.6"
-              d="M100,26 A44 44 0 1 0 100,114 A44 44 0 1 0 100,26 Z M100,50 A20 20 0 1 0 100,90 A20 20 0 1 0 100,50 Z"/>
-            <path d="M66,48 A44 44 0 0 1 122,36" fill="none" stroke="#9ca3af" stroke-width="5" opacity=".55" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="prod-body">
-          <h4>O'Rings</h4>
-          <p>NBR · sellado y presión</p>
-          <a href="#contacto">Cotizar <b>→</b></a>
-        </div>
-      </div>
-
+    <div class="cf-stage" id="cfStage">
+      <figure class="cf-item" data-name="Tornillos" data-spec="Acero · cabeza hexagonal · varias medidas">
+        <img src="img/tornillos.jpg" alt="Tornillos" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Pernos" data-spec="Grado 5 y 8 · pulgadas y milímetros">
+        <img src="img/pernos.jpg" alt="Pernos" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Tuercas" data-spec="Hexagonales · métricas y de pulgada">
+        <img src="img/tuercas.jpg" alt="Tuercas" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Arandelas" data-spec="Planas, de presión y golillas">
+        <img src="img/arandelas.jpg" alt="Arandelas" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Tubos y caños" data-spec="Acero al carbono y galvanizado">
+        <img src="img/tubos.jpg" alt="Tubos y caños" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Abrazaderas" data-spec="Tipo Duker · varias medidas">
+        <img src="img/abrazaderas.jpg" alt="Abrazaderas" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Cintillos de nylon" data-spec="Blancos y negros · varias medidas">
+        <img src="img/cintillos.jpg" alt="Cintillos de nylon" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="O'Rings" data-spec="NBR · sellado y presión">
+        <img src="img/orings.jpg" alt="O rings" loading="lazy">
+      </figure>
+      <figure class="cf-item" data-name="Planchas y perfiles" data-spec="Acero · varios espesores">
+        <img src="img/planchas.jpg" alt="Planchas y perfiles" loading="lazy">
+      </figure>
     </div>
-  </div>
 
-  <div class="marquee reverse" aria-hidden="true" style="margin-top:18px">
-    <div class="marquee-track" id="trackB"></div>
+    <button class="cf-arrow cf-next" id="cfNext" type="button" aria-label="Producto siguiente">›</button>
+
+    <div class="cf-caption">
+      <b id="cfName">Tornillos</b>
+      <span id="cfSpec">Acero · cabeza hexagonal · varias medidas</span>
+    </div>
+    <div class="cf-dots" id="cfDots"></div>
   </div>
 </section>
 
@@ -801,6 +687,7 @@
     </div>
     <div class="foot-bottom">
       © <span id="year"></span> J & R inversiones JIPPI e.i.r.l. · RUC 20553920648 · Todos los derechos reservados.
+      <div style="opacity:.55;font-size:11.5px;margin-top:6px">Fotos de productos: Wikimedia Commons (uso libre).</div>
     </div>
   </div>
 </footer>
@@ -876,15 +763,68 @@
     setTimeout(tick, 2200);
   })();
 
-  (function marquee() {
-    const a = document.getElementById('trackA');
-    const b = document.getElementById('trackB');
-    if (!a || !b) return;
-    const items = Array.from(a.children);
-    items.forEach((n) => a.appendChild(n.cloneNode(true)));
-    const rev = items.map((n) => n.cloneNode(true)).reverse();
-    rev.forEach((n) => b.appendChild(n));
-    rev.forEach((n) => b.appendChild(n));
+  (function coverflow() {
+    const stage = document.getElementById('cfStage');
+    if (!stage) return;
+    const items = Array.from(stage.querySelectorAll('.cf-item'));
+    const nameEl = document.getElementById('cfName');
+    const specEl = document.getElementById('cfSpec');
+    const dotsEl = document.getElementById('cfDots');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const n = items.length;
+    const half = Math.floor(n / 2);
+    let active = 0, timer = null;
+
+    items.forEach((it, i) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'cf-dot';
+      d.setAttribute('aria-label', 'Producto ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dotsEl.appendChild(d);
+    });
+    const dots = Array.from(dotsEl.children);
+
+    function autoplay() {
+      if (timer) clearInterval(timer);
+      if (!reduce) timer = setInterval(() => go(active + 1), 5200);
+    }
+
+    function go(next) {
+      active = ((next % n) + n) % n;
+      const gap = Math.min(205, Math.max(120, stage.clientWidth * 0.26));
+      items.forEach((it, i) => {
+        let off = (i - active + n) % n;
+        if (off > half) off -= n;
+        const abs = Math.abs(off);
+        it.style.transform = 'translate(-50%,-50%) translateX(' + (off * gap) + 'px) scale(' + (off === 0 ? 1 : 0.8) + ') rotateY(' + (-off * 16) + 'deg)';
+        it.style.filter = off === 0 ? 'none' : 'blur(4px) grayscale(.4) brightness(.9)';
+        it.style.opacity = abs > 2 ? '0' : (off === 0 ? '1' : '0.72');
+        it.style.zIndex = String(20 - abs);
+        it.style.pointerEvents = abs > 2 ? 'none' : 'auto';
+        it.classList.toggle('is-active', off === 0);
+      });
+      dots.forEach((d, i) => d.classList.toggle('on', i === active));
+      nameEl.textContent = items[active].dataset.name || '';
+      specEl.textContent = items[active].dataset.spec || '';
+      autoplay();
+    }
+
+    document.getElementById('cfPrev').addEventListener('click', () => go(active - 1));
+    document.getElementById('cfNext').addEventListener('click', () => go(active + 1));
+    items.forEach((it, i) => it.addEventListener('click', () => { if (i !== active) go(i); }));
+
+    let sx = null;
+    stage.addEventListener('pointerdown', (e) => { sx = e.clientX; });
+    stage.addEventListener('pointerup', (e) => {
+      if (sx === null) return;
+      const dx = e.clientX - sx; sx = null;
+      if (Math.abs(dx) > 40) go(active + (dx < 0 ? 1 : -1));
+    });
+    stage.addEventListener('mouseenter', () => { if (timer) { clearInterval(timer); timer = null; } });
+    stage.addEventListener('mouseleave', autoplay);
+
+    go(0);
   })();
 </script>
 </body>
