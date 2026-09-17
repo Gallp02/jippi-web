@@ -111,7 +111,7 @@
   section{padding:90px 0}
   .section-label{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1e3a5f;margin-bottom:12px}
   h2{font-size:34px;font-weight:800;color:#1e3a5f;margin-bottom:14px;letter-spacing:-.3px}
-  h2 .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  h2 .accent{background:linear-gradient(90deg,#2563eb,#7c3aed,#db2777,#f59e0b,#2563eb);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:colorShift 6s linear infinite}
   .sub{color:var(--gray-600);max-width:650px;margin-bottom:46px;font-size:15.5px}
 
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -202,6 +202,29 @@
   .social a:hover{background:#2563eb;color:#fff;transform:translateY(-3px)}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:13px}
 
+  /* === Animaciones de texto (estilo Animista) === */
+  .anim-grad,h1.anim-grad{
+    background:linear-gradient(90deg,#7dd3fc,#a78bfa,#f0abfc,#fbbf24,#67e8f9,#7dd3fc);
+    background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    animation:colorShift 7s linear infinite
+  }
+  @keyframes colorShift{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+  .wave span{display:inline-block;color:#fff;animation:waveColor 3.4s ease-in-out infinite;animation-delay:calc(var(--i,0) * .06s)}
+  @keyframes waveColor{
+    0%,64%,100%{color:#fff;text-shadow:none;transform:translateY(0)}
+    32%{color:#7dd3fc;text-shadow:0 0 16px rgba(125,211,252,.9);transform:translateY(-3px)}
+  }
+  .btn-glow{animation:btnGlow 3.2s ease-in-out infinite}
+  @keyframes btnGlow{0%,100%{box-shadow:0 0 0 rgba(37,99,235,0)}50%{box-shadow:0 0 28px rgba(37,99,235,.7)}}
+  .badge .ico-anim{display:inline-block;animation:bounceMini 2.2s ease-in-out infinite}
+  @keyframes bounceMini{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  @media (prefers-reduced-motion:reduce){
+    .anim-grad,h1.anim-grad,.wave span,.btn-glow,.badge .ico-anim{animation:none}
+    .anim-grad,h1.anim-grad{color:#7dd3fc}
+  }
+
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
   .reveal.visible{opacity:1;transform:none}
 
@@ -250,13 +273,13 @@
       <div class="hero-badges">
         <span class="badge">RUC 20553920648</span>
         <span class="badge">Partes de manufactura</span>
-        <span class="badge">📦 Mayor y menor</span>
+        <span class="badge"><span class="ico-anim">📦</span> Mayor y menor</span>
       </div>
-      <h1>Tornillos, tubos y partes de manufactura</h1>
-      <p class="subtitle">J & R inversiones · JIPPI e.i.r.l.</p>
+      <h1 class="anim-grad">Tornillos, tubos y partes de manufactura</h1>
+      <p class="subtitle wave" id="subtitleWave">J &amp; R inversiones · JIPPI e.i.r.l.</p>
       <p class="tagline">Suministramos tornillos, pernos, tuercas, tubos y accesorios de manufactura para talleres, ferreterías, obras e industria, con [precio por mayor y atención rápida].</p>
       <div class="hero-cta">
-        <a class="btn" href="#contacto">Pedir cotización</a>
+        <a class="btn btn-glow" href="#contacto">Pedir cotización</a>
         <a class="btn btn-ghost" href="#servicios">Ver productos</a>
       </div>
       <div class="hero-mini">
@@ -622,6 +645,18 @@
     });
   }, { threshold: 0.4 });
   counters.forEach((el) => cio.observe(el));
+
+  document.querySelectorAll('.wave').forEach((el) => {
+    const text = el.textContent;
+    el.textContent = '';
+    [...text].forEach((ch, i) => {
+      if (ch === ' ') { el.appendChild(document.createTextNode(' ')); return; }
+      const s = document.createElement('span');
+      s.textContent = ch;
+      s.style.setProperty('--i', i % 14);
+      el.appendChild(s);
+    });
+  });
 </script>
 </body>
 </html>
