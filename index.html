@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>J & R Inversiones JIPPI | Facturación y Servicios</title>
+<meta name="description" content="J & R Inversiones JIPPI - Empresa peruana de servicios. Facturación electrónica y más.">
+<style>
+  :root{
+    --brand:#863bff;
+    --brand-2:#7e14ff;
+    --brand-dark:#5b0ec1;
+    --lavanda:#ede6ff;
+    --white:#ffffff;
+    --bg:#f8fafc;
+    --gray-100:#f1f5f9;
+    --gray-200:#e2e8f0;
+    --gray-500:#64748b;
+    --gray-700:#334155;
+    --gray-900:#0f172a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--gray-700);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  a{text-decoration:none;color:inherit}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-200)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--gray-900);font-size:18px}
+  .brand svg{flex-shrink:0}
+  .nav-links{display:flex;gap:24px;font-weight:500}
+  .nav-links a:hover{color:var(--brand)}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(134,59,255,.35)}
+  .btn-light{background:#fff;color:var(--brand-2);border:1px solid var(--gray-200)}
+  .btn-light:hover{box-shadow:0 8px 20px rgba(0,0,0,.08)}
+
+  .hero{background:linear-gradient(135deg,var(--lavanda),var(--brand) 60%,var(--brand-2));color:#fff;padding:90px 0 110px;overflow:hidden}
+  .hero-inner{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .hero h1{font-size:44px;line-height:1.15;margin-bottom:16px;color:#fff}
+  .hero p{font-size:18px;color:rgba(255,255,255,.92);max-width:520px;margin-bottom:28px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-cta .btn-light{color:#fff;background:rgba(255,255,255,0);border-color:rgba(255,255,255,.6)}
+  .hero-cta .btn-light:hover{background:rgba(255,255,255,.15)}
+  .hero-badge{display:inline-block;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:999px;font-size:14px;margin-bottom:18px}
+  .zap-card{background:#fff;border-radius:20px;padding:36px;color:var(--gray-900);box-shadow:0 20px 40px rgba(0,0,0,.18);text-align:center}
+  .zap-card svg{width:74px;height:auto;margin-bottom:8px}
+  .zap-card h3{font-size:20px;margin-bottom:4px}
+  .zap-card small{color:var(--gray-500)}
+
+  section{padding:80px 0}
+  .section-tag{display:inline-block;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px;margin-bottom:10px}
+  h2{font-size:34px;color:var(--gray-900);margin-bottom:16px}
+  .sub{color:var(--gray-500);max-width:620px;margin-bottom:44px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:28px;transition:transform .15s,box-shadow .15s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08)}
+  .card .ico{width:52px;height:52px;border-radius:12px;background:var(--lavanda);color:var(--brand-2);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+  .card h3{font-size:18px;color:var(--gray-900);margin-bottom:8px}
+  .card p{font-size:15px;color:var(--gray-500)}
+
+  .about{background:#fff;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .about-grid h2{margin-bottom:12px}
+  .about-grid p{color:var(--gray-500);margin-bottom:16px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .stat{background:var(--gray-100);border-radius:12px;padding:18px;text-align:center}
+  .stat b{font-size:26px;color:var(--brand-2);display:block}
+  .stat span{font-size:13px;color:var(--gray-500)}
+  .zap-big{display:flex;align-items:center;justify-content:center}
+  .zap-big svg{width:120px;height:auto}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .contact-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+  .contact-item .ico{width:44px;height:44px;border-radius:10px;background:var(--lavanda);color:var(--brand-2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .contact-item h4{color:var(--gray-900);font-size:16px}
+  .contact-item p{color:var(--gray-500)}
+  form{display:grid;gap:14px;background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:28px}
+  form input,form textarea{width:100%;padding:12px 14px;border:1px solid var(--gray-200);border-radius:10px;font:inherit;background:var(--gray-100)}
+  form input:focus,form textarea:focus{outline:2px solid var(--brand);background:#fff}
+  form .btn{width:100%;text-align:center;border:none;cursor:pointer}
+
+  footer{background:var(--gray-900);color:#94a3b8;padding:36px 0;text-align:center;font-size:14px}
+  footer b{color:#fff}
+
+  @media (max-width:860px){
+    .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .hero h1{font-size:32px}
+    .nav-links{display:none}
+    .hero{padding:60px 0 80px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <svg width="34" height="33" viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
+      J&R Inversiones <span style="color:var(--brand-2)">JIPPI</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn" href="#contacto">Contáctanos</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-badge">⚡ RUC 20553920648 · Perú</span>
+      <h1>[Frase principal de JIPPI en una línea]</h1>
+      <p>[Aquí va la descripción corta de tu empresa: a qué se dedica J&R Inversiones JIPPI y por qué el cliente debe confiar en ustedes.]</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="#servicios">Ver servicios</a>
+        <a class="btn-light btn" href="#contacto">Pedir cotización</a>
+      </div>
+    </div>
+    <div class="zap-card">
+      <svg viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
+      <h3>J &amp; R Inversiones JIPPI</h3>
+      <small>[Sector / Especialidad]</small>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <span class="section-tag">Servicios</span>
+    <h2>¿Qué hacemos?</h2>
+    <p class="sub">[Edita estos tres servicios o dime cuáles son los tuyos y los cambio.]</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🧾</div>
+        <h3>Facturación electrónica</h3>
+        <p>[Descripción del servicio de facturación electrónica de JIPPI.]</p>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div>
+        <h3>Contabilidad e inversiones</h3>
+        <p>[Descripción del segundo servicio de la empresa.]</p>
+      </div>
+      <div class="card">
+        <div class="ico">🤝</div>
+        <h3>Asesoría y soporte</h3>
+        <p>[Descripción del tercer servicio o atención al cliente.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="container about-grid">
+    <div>
+      <span class="section-tag">Nosotros</span>
+      <h2>[Subtítulo de presentación]</h2>
+      <p>[Texto sobre la empresa: a qué se dedica, desde cuándo, qué ofrece y por qué es confiable.]</p>
+      <p>[Segundo párrafo opcional con más detalle del negocio de J&R Inversiones JIPPI.]</p>
+      <div class="stats">
+        <div class="stat"><b>[+]</b><span>[Años/clientes]</span></div>
+        <div class="stat"><b>[+]</b><span>[Servicios/cosas]</span></div>
+        <div class="stat"><b>100%</b><span>[Algo/Confianza]</span></div>
+      </div>
+    </div>
+    <div class="zap-big">
+      <svg viewBox="0 0 48 46" fill="none" aria-hidden="true"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z"/></svg>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <span class="section-tag">Contacto</span>
+    <h2>Contáctanos</h2>
+    <p class="sub">[Agrega aquí los datos reales de contacto e indico cómo llegar / horarios.]</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="ico">📍</div>
+          <div><h4>Dirección</h4><p>[Dirección de JIPPI, distrito, ciudad]</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico">📞</div>
+          <div><h4>Teléfono / WhatsApp</h4><p>[+51 999 999 999]</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico">📧</div>
+          <div><h4>Correo</h4><p>[correo@jippi.com]</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="ico">🕘</div>
+          <div><h4>Horario</h4><p>[Lun-Sáb: 9:00 am – 6:00 pm]</p></div>
+        </div>
+      </div>
+      <form action="mailto:[correo@jippi.com]" method="get" enctype="text/plain">
+        <input type="text" name="name" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <input type="text" name="phone" placeholder="Tu teléfono (opcional)">
+        <textarea name="message" rows="4" placeholder="¿En qué te ayudamos?" required></textarea>
+        <button class="btn" type="submit">Enviar mensaje</button>
+        <small style="color:var(--gray-500);text-align:center">[Nota: el formulario abre tu correo. Si prefieres WhatsApp, cambio el botón.]</small>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <b>J&R Inversiones JIPPI</b> · RUC 20553920648 · [Dirección] · <b>[+51 999 999 999]</b><br>
+    © <span id="year"></span> J&R Inversiones JIPPI. Todos los derechos reservados.
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
