@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>J & R inversiones JIPPI | Partes de Manufactura - Tornillos y Tubos</title>
 <meta name="description" content="J & R inversiones JIPPI e.i.r.l. - Venta de partes de manufactura: tornillos, pernos, tuercas, tubos y accesorios. RUC 20553920648.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="J & R inversiones JIPPI">
+<meta property="og:locale" content="es_PE">
+<meta property="og:title" content="J & R inversiones JIPPI | Tornillos, tubos y partes de manufactura">
+<meta property="og:description" content="Venta por mayor y menor de tornillos, pernos, tuercas, tubos, abrazaderas y accesorios. Pide tu cotización por WhatsApp.">
+<meta property="og:url" content="https://gallp02.github.io/jippi-web/">
+<meta property="og:image" content="https://gallp02.github.io/jippi-web/img/tornillos.jpg">
+<meta property="og:image:width" content="960">
+<meta property="og:image:height" content="510">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="logo.png">
 <style>
   :root{
@@ -188,7 +198,7 @@
   .form-note{text-align:center;font-size:12px;color:var(--gray-500)}
 
   footer{background:linear-gradient(180deg,#0f1f3a,#0c1930);color:rgba(255,255,255,.6);padding:56px 0 0}
-  .footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr 1fr;gap:34px;padding-bottom:40px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr .8fr .8fr .8fr 1fr;gap:30px;padding-bottom:40px}
   .footer-grid h5{color:#fff;font-size:14px;margin-bottom:14px;font-weight:700}
   .footer-grid p,.footer-grid a,.footer-grid li{font-size:13.5px;color:rgba(255,255,255,.6);line-height:2;list-style:none}
   .footer-grid ul{padding:0}
@@ -272,6 +282,77 @@
     section{padding:64px 0}
   }
   [data-theme='dark']{background:#0f172a}
+
+  /* === WhatsApp flotante + cotización === */
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:90;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(37,211,102,.45);transition:transform .18s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+  .wa-float::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:waPulse 2.2s infinite}
+  @keyframes waPulse{0%{transform:scale(1);opacity:.65}100%{transform:scale(1.6);opacity:0}}
+  .quote-btn{position:fixed;right:22px;bottom:90px;z-index:90;display:flex;align-items:center;gap:8px;padding:12px 18px;border:0;border-radius:999px;background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 12px 30px rgba(30,58,95,.4)}
+  .quote-btn .badge-count{background:#fff;color:#1e3a5f;border-radius:999px;font-size:12px;padding:1px 8px;font-weight:800}
+  .quote-btn[hidden]{display:none}
+  .quote-overlay{position:fixed;inset:0;background:rgba(15,31,58,.5);z-index:110;opacity:0;pointer-events:none;transition:opacity .3s}
+  .quote-overlay.open{opacity:1;pointer-events:auto}
+  .quote-drawer{position:fixed;top:0;right:0;bottom:0;width:360px;max-width:88vw;background:#fff;z-index:120;box-shadow:-20px 0 50px rgba(15,31,58,.25);transform:translateX(105%);transition:transform .4s cubic-bezier(.22,.61,.36,1);display:flex;flex-direction:column}
+  .quote-drawer.open{transform:none}
+  .quote-head{padding:18px 20px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between}
+  .quote-head b{color:var(--gray-900);font-size:16px}
+  .quote-head button{border:0;background:transparent;font-size:24px;line-height:1;cursor:pointer;color:var(--gray-500)}
+  .quote-list{flex:1;overflow:auto;padding:6px 16px}
+  .quote-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--gray-100)}
+  .quote-row img{width:46px;height:46px;object-fit:cover;border-radius:9px;flex:0 0 auto}
+  .quote-row .qr-name{flex:1;font-size:13.5px;color:var(--gray-700);font-weight:600}
+  .qty{display:flex;align-items:center;gap:5px}
+  .qty button{width:24px;height:24px;border:1px solid var(--gray-200);background:#fff;border-radius:7px;cursor:pointer;color:#1e3a5f;font-weight:700;line-height:1}
+  .qty span{min-width:16px;text-align:center;font-size:13px;font-weight:700;color:var(--gray-900)}
+  .qr-del{border:0;background:transparent;color:#ef4444;cursor:pointer;font-size:14px}
+  .quote-foot{padding:16px 20px;border-top:1px solid var(--gray-200)}
+  .quote-foot .btn{width:100%;justify-content:center}
+  .quote-empty{padding:34px 20px;text-align:center;color:var(--gray-500);font-size:13.5px}
+  .add-quote{display:inline-flex;align-items:center;gap:7px;margin-top:12px;padding:9px 16px;border:1px solid #cbd5e1;background:#fff;color:#1e3a5f;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;transition:background .18s,color .18s,border-color .18s}
+  .add-quote:hover{background:#1e3a5f;color:#fff;border-color:#1e3a5f}
+
+  /* === Buscador del catálogo === */
+  .cf-search{display:flex;justify-content:center;margin:16px 0 2px}
+  .cf-search input{width:min(380px,90%);padding:12px 16px 12px 40px;border:1px solid var(--gray-200);border-radius:999px;font-size:14px;font-family:inherit;outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='M11 11l4 4'/%3E%3C/svg%3E") no-repeat 14px center;transition:border-color .2s,box-shadow .2s}
+  .cf-search input:focus{border-color:#2563eb;box-shadow:0 0 0 4px rgba(37,99,235,.12)}
+  .cf-noresult{display:none;text-align:center;color:var(--gray-500);font-size:14px;padding:0 0 10px}
+
+  /* === Lightbox (zoom de foto) === */
+  .lightbox{position:fixed;inset:0;z-index:130;background:rgba(9,17,31,.92);display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:76vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lightbox .lb-cap{color:#fff;margin-top:16px;font-size:16px;font-weight:600;text-align:center}
+  .lightbox .lb-cap small{display:block;font-weight:400;opacity:.75;font-size:13px;margin-top:3px}
+  .lb-close{position:absolute;top:18px;right:22px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+  .lb-close:hover{background:rgba(255,255,255,.28)}
+
+  /* === Menú móvil === */
+  .nav-toggle{display:none;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:20px;line-height:1;padding:9px 12px;border-radius:9px;cursor:pointer}
+  @media (max-width:960px){
+    .nav{position:relative}
+    .nav-toggle{display:block}
+    .nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;gap:2px;background:linear-gradient(180deg,#0f1f3a,#1e3a5f);padding:10px;border-radius:14px;box-shadow:0 20px 40px rgba(15,31,58,.4);display:none}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:11px 14px}
+  }
+
+  /* === Medidas / pagos / entrega === */
+  .table-wrap{overflow-x:auto;border:1px solid var(--gray-200);border-radius:14px;background:#fff}
+  table.medidas{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+  table.medidas th,table.medidas td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--gray-100)}
+  table.medidas th{background:var(--gray-100);color:#1e3a5f;font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+  table.medidas tr:last-child td{border-bottom:0}
+  table.medidas td b{color:var(--gray-900)}
+  .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+  .pay-card{background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:24px}
+  .pay-card .ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#1e3a5f,#2563eb);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+  .pay-card h3{font-size:16px;color:var(--gray-900);margin-bottom:10px}
+  .pay-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .pay-card li{font-size:13.5px;color:var(--gray-700);display:flex;gap:8px;align-items:flex-start}
+  .pay-card li::before{content:'✓';color:#2563eb;font-weight:800}
+  @media (max-width:860px){ .pay-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -289,10 +370,11 @@
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Productos</a>
       <a href="#catalogo">Catálogo</a>
+      <a href="#medidas">Medidas</a>
       <a href="#nosotros">Nosotros</a>
-      <a href="#testimonios">Clientes</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú">☰</button>
     <a class="btn btn-cta-nav" href="#contacto">Contáctanos</a>
   </div>
 </header>
@@ -372,6 +454,10 @@
     <h2>Mira nuestros <span class="accent">productos</span></h2>
     <p class="sub">Tornillería, tubería, abrazaderas y accesorios listos para tu taller, ferretería u obra. Pasa las fotos con las flechas para ver cada producto.</p>
     <div class="catalog-tip">👉 Usa las flechas ‹ › o toca las fotos de los costados.</div>
+    <div class="cf-search">
+      <input id="cfSearch" type="search" placeholder="Buscar producto: tuerca, tubo, abrazadera..." aria-label="Buscar producto">
+    </div>
+    <div class="cf-noresult" id="cfNoResult">No encontramos ese producto. Escríbenos y lo conseguimos.</div>
   </div>
 
   <div class="cf-wrap">
@@ -412,10 +498,17 @@
     <div class="cf-caption">
       <b id="cfName">Tornillos</b>
       <span id="cfSpec">Acero · cabeza hexagonal · varias medidas</span>
+      <div><button class="add-quote" id="cfAdd" type="button">+ Añadir a mi cotización</button></div>
     </div>
     <div class="cf-dots" id="cfDots"></div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Vista ampliada del producto">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Cerrar">×</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+</div>
 
 <section id="servicios">
   <div class="container">
@@ -592,6 +685,62 @@
   </div>
 </section>
 
+<section id="medidas">
+  <div class="container">
+    <div class="section-label"><span>📐</span> Medidas y compras</div>
+    <h2>Medidas, pagos y <span class="accent">entrega</span></h2>
+    <p class="sub">Medidas referenciales de lo que más se pide. Si necesitas otra medida o una cantidad grande, la conseguimos y te cotizamos.</p>
+    <div class="table-wrap reveal">
+      <table class="medidas">
+        <thead><tr><th>Producto</th><th>Medidas más pedidas</th><th>Presentación</th></tr></thead>
+        <tbody>
+          <tr><td><b>Tornillos</b></td><td>M4 a M20 · 1/4" a 1"</td><td>Caja x 100 unid.</td></tr>
+          <tr><td><b>Pernos</b></td><td>1/4" a 1" · M6 a M20</td><td>Caja x 50 unid.</td></tr>
+          <tr><td><b>Tuercas</b></td><td>M4 a M20 · 1/4" a 1"</td><td>Bolsa x 100 unid.</td></tr>
+          <tr><td><b>Arandelas</b></td><td>M4 a M20</td><td>Bolsa x 100 unid.</td></tr>
+          <tr><td><b>Tubos y caños</b></td><td>1/2" a 4" de diámetro</td><td>Tira de 6 m</td></tr>
+          <tr><td><b>Abrazaderas</b></td><td>8–12 mm hasta 100–120 mm</td><td>Bolsa x 10 unid.</td></tr>
+          <tr><td><b>Cintillos de nylon</b></td><td>100 mm a 400 mm</td><td>Bolsa x 100 unid.</td></tr>
+          <tr><td><b>O'Rings</b></td><td>1/8" a 2"</td><td>Bolsa x 50 unid.</td></tr>
+          <tr><td><b>Planchas</b></td><td>1 mm a 6 mm de espesor</td><td>Plancha 1.20 x 2.40 m</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="reveal pay-grid">
+      <div class="pay-card">
+        <div class="ico">💳</div>
+        <h3>Formas de pago</h3>
+        <ul>
+          <li>Yape y Plin</li>
+          <li>Transferencia (BCP, Interbank, BBVA)</li>
+          <li>Efectivo en almacén</li>
+          <li>Boleta y factura</li>
+        </ul>
+      </div>
+      <div class="pay-card">
+        <div class="ico">🚚</div>
+        <h3>Entrega</h3>
+        <ul>
+          <li>Delivery en Lima en 24–48 h</li>
+          <li>Envíos a provincias por agencia</li>
+          <li>Recojo en almacén sin costo</li>
+          <li>Descuentos por compra al por mayor</li>
+        </ul>
+      </div>
+      <div class="pay-card">
+        <div class="ico">🧾</div>
+        <h3>Cómo comprar</h3>
+        <ul>
+          <li>Escríbenos por WhatsApp</li>
+          <li>Te enviamos la cotización</li>
+          <li>Confirmas el pago</li>
+          <li>Coordinamos la entrega</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contacto">
   <div class="container">
     <div class="section-label"><span>📞</span> Contacto</div>
@@ -651,7 +800,7 @@
         <p>Venta de partes de manufactura: tornillos, pernos, tuercas, tubos, planchas y accesorios para ferreterías, talleres y empresas.</p>
         <div class="social">
           <a href="#" title="Facebook">📘</a>
-          <a href="#" title="WhatsApp">💬</a>
+          <a href="#" data-wa="Hola J & R inversiones JIPPI, quisiera información sobre sus productos." title="WhatsApp">💬</a>
           <a href="#" title="Instagram">📸</a>
           <a href="#" title="TikTok">🎵</a>
         </div>
@@ -670,9 +819,17 @@
         <h5>Enlaces</h5>
         <ul>
           <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#medidas">Medidas y pagos</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#testimonios">Clientes</a></li>
           <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="reclamaciones.html">Libro de Reclamaciones</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
         </ul>
       </div>
       <div>
@@ -691,6 +848,26 @@
     </div>
   </div>
 </footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<button class="quote-btn" id="quoteBtn" type="button" hidden>
+  <span>🧾 Mi cotización</span><span class="badge-count" id="quoteCount">0</span>
+</button>
+
+<div class="quote-overlay" id="quoteOverlay"></div>
+<aside class="quote-drawer" id="quoteDrawer" aria-label="Mi cotización">
+  <div class="quote-head">
+    <b>🧾 Mi cotización</b>
+    <button id="quoteClose" type="button" aria-label="Cerrar">×</button>
+  </div>
+  <div class="quote-list" id="quoteList"></div>
+  <div class="quote-foot">
+    <button class="btn" id="quoteSend" type="button">Enviar por WhatsApp</button>
+  </div>
+</aside>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
@@ -763,40 +940,146 @@
     setTimeout(tick, 2200);
   })();
 
+  const WA_NUMBER = '51999999999';
+  const waLink = (t) => 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(t);
+
+  const waFloat = document.getElementById('waFloat');
+  if (waFloat) waFloat.href = waLink('Hola J & R inversiones JIPPI, quisiera cotizar productos de manufactura.');
+  document.querySelectorAll('a[data-wa]').forEach((a) => { a.href = waLink(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
+
+  (function mobileNav() {
+    const t = document.getElementById('navToggle');
+    const links = document.querySelector('.nav-links');
+    if (!t || !links) return;
+    t.addEventListener('click', () => links.classList.toggle('open'));
+    links.addEventListener('click', (e) => { if (e.target.tagName === 'A') links.classList.remove('open'); });
+  })();
+
+  (function quoteCart() {
+    const btn = document.getElementById('quoteBtn');
+    const countEl = document.getElementById('quoteCount');
+    const drawer = document.getElementById('quoteDrawer');
+    const overlay = document.getElementById('quoteOverlay');
+    const listEl = document.getElementById('quoteList');
+    if (!btn || !listEl) return;
+    const cart = new Map();
+    const open = () => { drawer.classList.add('open'); overlay.classList.add('open'); };
+    const close = () => { drawer.classList.remove('open'); overlay.classList.remove('open'); };
+
+    function render() {
+      listEl.innerHTML = '';
+      if (!cart.size) {
+        listEl.innerHTML = '<div class="quote-empty">Todavía no agregaste productos.<br>Usa el botón "+ Añadir a mi cotización".</div>';
+      } else {
+        cart.forEach((e, name) => {
+          const row = document.createElement('div');
+          row.className = 'quote-row';
+          row.innerHTML = (e.img ? '<img src="' + e.img + '" alt="">' : '') +
+            '<div class="qr-name"></div>' +
+            '<div class="qty"><button type="button" data-act="dec">−</button><span></span><button type="button" data-act="inc">+</button></div>' +
+            '<button class="qr-del" type="button" data-act="del" aria-label="Quitar">✕</button>';
+          row.querySelector('.qr-name').textContent = name;
+          row.querySelector('span').textContent = e.qty;
+          row.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => {
+            const act = b.dataset.act;
+            if (act === 'inc') e.qty++;
+            else if (act === 'dec') { e.qty--; if (e.qty < 1) cart.delete(name); }
+            else cart.delete(name);
+            render();
+          }));
+          listEl.appendChild(row);
+        });
+      }
+      const qty = Array.from(cart.values()).reduce((s, e) => s + e.qty, 0);
+      countEl.textContent = qty;
+      btn.hidden = qty === 0;
+    }
+
+    function add(name, img) {
+      if (!name) return;
+      const e = cart.get(name) || { qty: 0, img: img };
+      e.qty++;
+      if (img) e.img = img;
+      cart.set(name, e);
+      render();
+      if (btn.animate) btn.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.12)' }, { transform: 'scale(1)' }], { duration: 260 });
+    }
+
+    function send() {
+      if (!cart.size) return;
+      const lines = Array.from(cart.entries()).map(([n, e]) => '• ' + n + ' x' + e.qty);
+      const msg = 'Hola J & R inversiones JIPPI, quiero cotizar:\n' + lines.join('\n') + '\n\nMi nombre: \nMi ciudad: ';
+      window.open(waLink(msg), '_blank');
+    }
+
+    btn.addEventListener('click', open);
+    document.getElementById('quoteClose').addEventListener('click', close);
+    overlay.addEventListener('click', close);
+    document.getElementById('quoteSend').addEventListener('click', send);
+
+    const cfAdd = document.getElementById('cfAdd');
+    if (cfAdd) cfAdd.addEventListener('click', () => add(cfAdd.dataset.name, cfAdd.dataset.img || ''));
+
+    document.querySelectorAll('#servicios .card').forEach((card) => {
+      const h = card.querySelector('h3');
+      if (!h) return;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'add-quote';
+      b.textContent = '+ Añadir a mi cotización';
+      b.addEventListener('click', () => add(h.textContent.trim(), ''));
+      const more = card.querySelector('.more');
+      if (more) more.insertAdjacentElement('afterend', b);
+      else card.appendChild(b);
+    });
+
+    render();
+  })();
+
   (function coverflow() {
     const stage = document.getElementById('cfStage');
     if (!stage) return;
-    const items = Array.from(stage.querySelectorAll('.cf-item'));
+    const all = Array.from(stage.querySelectorAll('.cf-item'));
     const nameEl = document.getElementById('cfName');
     const specEl = document.getElementById('cfSpec');
     const dotsEl = document.getElementById('cfDots');
+    const searchEl = document.getElementById('cfSearch');
+    const addBtn = document.getElementById('cfAdd');
+    const noResultEl = document.getElementById('cfNoResult');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const n = items.length;
-    const half = Math.floor(n / 2);
-    let active = 0, timer = null;
+    let list = all.slice(), active = 0, timer = null;
 
-    items.forEach((it, i) => {
-      const d = document.createElement('button');
-      d.type = 'button';
-      d.className = 'cf-dot';
-      d.setAttribute('aria-label', 'Producto ' + (i + 1));
-      d.addEventListener('click', () => go(i));
-      dotsEl.appendChild(d);
-    });
-    const dots = Array.from(dotsEl.children);
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      list.forEach((it, i) => {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'cf-dot';
+        d.setAttribute('aria-label', 'Producto ' + (i + 1));
+        d.addEventListener('click', () => go(i));
+        dotsEl.appendChild(d);
+      });
+    }
 
     function autoplay() {
       if (timer) clearInterval(timer);
-      if (!reduce) timer = setInterval(() => go(active + 1), 5200);
+      if (!reduce && list.length > 1) timer = setInterval(() => go(active + 1), 5200);
     }
 
     function go(next) {
+      const n = list.length;
+      if (!n) return;
       active = ((next % n) + n) % n;
       const gap = Math.min(205, Math.max(120, stage.clientWidth * 0.26));
-      items.forEach((it, i) => {
+      const half = Math.floor(n / 2);
+      list.forEach((it, i) => {
         let off = (i - active + n) % n;
         if (off > half) off -= n;
         const abs = Math.abs(off);
+        it.style.display = '';
         it.style.transform = 'translate(-50%,-50%) translateX(' + (off * gap) + 'px) scale(' + (off === 0 ? 1 : 0.8) + ') rotateY(' + (-off * 16) + 'deg)';
         it.style.filter = off === 0 ? 'none' : 'blur(4px) grayscale(.4) brightness(.9)';
         it.style.opacity = abs > 2 ? '0' : (off === 0 ? '1' : '0.72');
@@ -804,15 +1087,46 @@
         it.style.pointerEvents = abs > 2 ? 'none' : 'auto';
         it.classList.toggle('is-active', off === 0);
       });
-      dots.forEach((d, i) => d.classList.toggle('on', i === active));
-      nameEl.textContent = items[active].dataset.name || '';
-      specEl.textContent = items[active].dataset.spec || '';
+      all.forEach((it) => { if (list.indexOf(it) === -1) it.style.display = 'none'; });
+      Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('on', i === active));
+      const cur = list[active];
+      nameEl.textContent = cur.dataset.name || '';
+      specEl.textContent = cur.dataset.spec || '';
+      if (addBtn) {
+        addBtn.dataset.name = cur.dataset.name || '';
+        const im = cur.querySelector('img');
+        addBtn.dataset.img = im ? im.getAttribute('src') : '';
+      }
       autoplay();
     }
 
+    function search(q) {
+      const term = (q || '').trim().toLowerCase();
+      list = !term ? all.slice() : all.filter((it) => ((it.dataset.name || '') + ' ' + (it.dataset.spec || '')).toLowerCase().indexOf(term) !== -1);
+      if (noResultEl) noResultEl.style.display = list.length ? 'none' : 'block';
+      buildDots();
+      go(0);
+    }
+
+    function openLightbox(it) {
+      const im = it.querySelector('img');
+      if (!im || !lb) return;
+      lbImg.src = im.getAttribute('src');
+      lbImg.alt = im.getAttribute('alt') || '';
+      lbCap.innerHTML = '<b></b><small></small>';
+      lbCap.querySelector('b').textContent = it.dataset.name || '';
+      lbCap.querySelector('small').textContent = it.dataset.spec || '';
+      lb.classList.add('open');
+    }
+
+    buildDots();
     document.getElementById('cfPrev').addEventListener('click', () => go(active - 1));
     document.getElementById('cfNext').addEventListener('click', () => go(active + 1));
-    items.forEach((it, i) => it.addEventListener('click', () => { if (i !== active) go(i); }));
+
+    all.forEach((it) => it.addEventListener('click', () => {
+      if (it.classList.contains('is-active')) openLightbox(it);
+      else { const i = list.indexOf(it); if (i > -1) go(i); }
+    }));
 
     let sx = null;
     stage.addEventListener('pointerdown', (e) => { sx = e.clientX; });
@@ -823,6 +1137,18 @@
     });
     stage.addEventListener('mouseenter', () => { if (timer) { clearInterval(timer); timer = null; } });
     stage.addEventListener('mouseleave', autoplay);
+
+    if (searchEl) searchEl.addEventListener('input', (e) => search(e.target.value));
+
+    if (lb) {
+      lb.addEventListener('click', (e) => { if (e.target !== lbImg) lb.classList.remove('open'); });
+      document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lb.classList.remove('open');
+        else if (e.key === 'ArrowRight') go(active + 1);
+        else if (e.key === 'ArrowLeft') go(active - 1);
+      });
+    }
 
     go(0);
   })();

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro de Reclamaciones | J & R inversiones JIPPI</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,'Segoe UI',Roboto,sans-serif;background:#f8fafc;color:#334155;line-height:1.65}
+  header{background:linear-gradient(135deg,#0f1f3a,#1e3a5f 50%,#2563eb);color:#fff;padding:18px 0}
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+  .brand img{width:42px;height:42px;object-fit:contain;border-radius:8px;background:rgba(255,255,255,.12)}
+  .brand b{display:block;font-size:15px}
+  .brand small{font-size:11px;opacity:.75}
+  .back{color:#fff;text-decoration:none;font-size:13.5px;font-weight:600;border:1px solid rgba(255,255,255,.35);padding:9px 16px;border-radius:999px;white-space:nowrap}
+  .back:hover{background:rgba(255,255,255,.12)}
+  main{max-width:860px;margin:0 auto;padding:36px 20px 70px}
+  h1{font-size:26px;color:#0f1f3a;margin-bottom:4px}
+  .sub{font-size:14px;color:#718096;margin-bottom:22px}
+  .card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px 26px;margin-bottom:18px}
+  .card h2{font-size:15px;color:#1e3a5f;text-transform:uppercase;letter-spacing:.4px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #eef2f7}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  label{font-size:12.5px;font-weight:600;color:#1e3a5f}
+  input,select,textarea{font-family:inherit;font-size:14px;padding:11px 13px;border:1px solid #e2e8f0;border-radius:10px;outline:none;background:#fff;color:#334155}
+  input:focus,select:focus,textarea:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.12)}
+  textarea{resize:vertical}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border:0;border-radius:10px;background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff;font-size:14px;font-weight:700;cursor:pointer}
+  .btn.ghost{background:#fff;color:#1e3a5f;border:1px solid #cbd5e1}
+  .note{font-size:12.5px;color:#718096;margin-top:12px}
+  .req{color:#ef4444}
+  footer{text-align:center;font-size:12.5px;color:#94a3b8;padding:26px 20px}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr}}
+  @media print{header,.back,.actions,.note,footer{display:none}.card{break-inside:avoid;border-color:#999}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="logo.png" alt="JIPPI">
+      <div><b>J & R inversiones</b><small>JIPPI e.i.r.l.</small></div>
+    </a>
+    <a class="back" href="index.html">← Volver a la web</a>
+  </div>
+</header>
+
+<main>
+  <h1>Libro de Reclamaciones Virtual</h1>
+  <p class="sub">Hoja de Reclamación conforme al Código de Protección y Defensa del Consumidor (Ley N.º 29571) y al D.S. N.º 011-2011-PCM.</p>
+
+  <form id="formRec">
+    <div class="card">
+      <h2>1. Identificación del consumidor</h2>
+      <div class="grid2">
+        <div class="field full"><label>Nombre completo <span class="req">*</span></label><input name="nombre" required></div>
+        <div class="field"><label>DNI / Carné de extranjería <span class="req">*</span></label><input name="documento" required></div>
+        <div class="field"><label>Teléfono <span class="req">*</span></label><input name="telefono" required></div>
+        <div class="field full"><label>Domicilio <span class="req">*</span></label><input name="domicilio" required></div>
+        <div class="field"><label>Correo electrónico</label><input type="email" name="email"></div>
+        <div class="field"><label>¿Eres menor de edad?</label><select name="menor"><option>No</option><option>Sí</option></select></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2. Identificación del bien contratado</h2>
+      <div class="grid2">
+        <div class="field"><label>Producto o servicio <span class="req">*</span></label><input name="producto" placeholder="Ej. Tornillos hexagonales 1/2&quot;" required></div>
+        <div class="field"><label>Monto reclamado (S/)</label><input name="monto" placeholder="Ej. 250.00"></div>
+        <div class="field full"><label>N.º de comprobante / boleta / factura</label><input name="comprobante"></div>
+        <div class="field full"><label>Descripción del bien <span class="req">*</span></label><textarea name="descripcion" rows="3" required></textarea></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3. Detalle de la reclamación</h2>
+      <div class="grid2">
+        <div class="field"><label>Tipo <span class="req">*</span></label>
+          <select name="tipo" required>
+            <option value="Reclamo">Reclamo (disconformidad con el producto o servicio)</option>
+            <option value="Queja">Queja (malestar con la atención)</option>
+          </select>
+        </div>
+        <div class="field"><label>Fecha del incidente</label><input type="date" name="fecha"></div>
+        <div class="field full"><label>Detalle de la reclamación <span class="req">*</span></label><textarea name="detalle" rows="4" required></textarea></div>
+        <div class="field full"><label>Pedido del consumidor <span class="req">*</span></label><textarea name="pedido" rows="3" placeholder="¿Qué solución esperas?" required></textarea></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>4. Envío</h2>
+      <p style="font-size:13.5px">Al enviar, se abrirá WhatsApp con el detalle para registrarlo y darte una respuesta en un plazo máximo de 30 días calendario.</p>
+      <div class="actions" style="margin-top:16px">
+        <button class="btn" type="submit">Enviar por WhatsApp</button>
+        <button class="btn ghost" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+      </div>
+      <p class="note">* Campos obligatorios. También puedes registrar tu reclamo en el almacén.</p>
+    </div>
+  </form>
+</main>
+
+<footer>© <span id="y"></span> J &amp; R inversiones JIPPI e.i.r.l. · RUC 20553920648</footer>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const WA_NUMBER = '51999999999';
+  document.getElementById('formRec').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const f = new FormData(this);
+    const g = (k) => (f.get(k) || '').toString();
+    const msg = 'HOJA DE RECLAMACIÓN - J & R inversiones JIPPI\n\n' +
+      '1) CONSUMIDOR\n' +
+      'Nombre: ' + g('nombre') + '\n' +
+      'Documento: ' + g('documento') + '\n' +
+      'Teléfono: ' + g('telefono') + '\n' +
+      'Domicilio: ' + g('domicilio') + '\n' +
+      'Correo: ' + g('email') + '\n' +
+      'Menor de edad: ' + g('menor') + '\n\n' +
+      '2) BIEN CONTRATADO\n' +
+      'Producto/servicio: ' + g('producto') + '\n' +
+      'Monto: S/ ' + g('monto') + '\n' +
+      'Comprobante: ' + g('comprobante') + '\n' +
+      'Descripción: ' + g('descripcion') + '\n\n' +
+      '3) RECLAMACIÓN\n' +
+      'Tipo: ' + g('tipo') + '\n' +
+      'Fecha del incidente: ' + g('fecha') + '\n' +
+      'Detalle: ' + g('detalle') + '\n' +
+      'Pedido: ' + g('pedido');
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  });
+</script>
+</body>
+</html>
